@@ -1,0 +1,636 @@
+$iora-bg: #080d1b;
+$iora-bg-soft: #0e1426;
+$iora-panel: #121a2e;
+$iora-panel-strong: #222a3d;
+$iora-hot-pink: #ff2d7d;
+$iora-berry: #d81b60;
+$iora-violet: #7c3aed;
+$iora-cyan: #38bdf8;
+$iora-mint: #34d399;
+$iora-white: #ffffff;
+$iora-muted: rgba(255, 255, 255, 0.68);
+$iora-faint: rgba(255, 255, 255, 0.12);
+$iora-border: rgba(73, 68, 84, 0.3);
+$iora-font-display: 'Space Grotesk', Arial, Helvetica, sans-serif;
+$iora-font-body: 'WenQuanYi Zen Hei', 'Noto Sans KR', Arial, Helvetica, sans-serif;
+
+@mixin container {
+  width: min(1216px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.home {
+  display: block;
+  min-height: 100vh;
+  gap: normal;
+  overflow: hidden;
+  padding: 0;
+  background:
+    radial-gradient(circle at 84% 6%, rgba(255, 45, 125, 0.24), transparent 26rem),
+    radial-gradient(circle at 12% 52%, rgba(124, 58, 237, 0.18), transparent 28rem),
+    linear-gradient(180deg, #090f20 0%, $iora-bg 48%, #0c1222 100%);
+  color: $iora-white;
+  font-family: $iora-font-body;
+  place-content: initial;
+  text-align: initial;
+}
+
+.header {
+  @include container;
+
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $iora-faint;
+  backdrop-filter: blur(20px);
+}
+
+.brand {
+  color: $iora-white;
+  font-family: $iora-font-display;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  a {
+    color: rgba(255, 255, 255, 0.72);
+    font-family: $iora-font-display;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+
+    &:hover {
+      color: $iora-white;
+    }
+  }
+}
+
+.hero {
+  @include container;
+
+  position: relative;
+  display: grid;
+  min-height: 720px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
+  align-items: center;
+  gap: 48px;
+  padding-block: 96px 132px;
+}
+
+.heroVisual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heroOrb {
+  position: absolute;
+  top: -170px;
+  right: -96px;
+  width: 576px;
+  height: 760px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 45, 125, 0.36), transparent 34%),
+    linear-gradient(180deg, rgba(255, 45, 125, 0.08), rgba(124, 58, 237, 0.04));
+  filter: blur(24px);
+}
+
+.heroDevice {
+  position: absolute;
+  right: 42px;
+  bottom: 104px;
+  width: min(500px, 42vw);
+  min-height: 534px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 32px;
+  background:
+    linear-gradient(150deg, rgba(255, 45, 125, 0.2), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+.deviceChrome {
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+
+  span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.24);
+  }
+}
+
+.deviceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 26px;
+
+  span {
+    min-height: 178px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    background:
+      linear-gradient(135deg, rgba(255, 45, 125, 0.34), transparent 62%),
+      rgba(255, 255, 255, 0.08);
+
+    &:nth-child(2) {
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.3), transparent 62%),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    &:nth-child(3) {
+      min-height: 128px;
+      background:
+        linear-gradient(135deg, rgba(52, 211, 153, 0.28), transparent 62%),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    &:nth-child(4) {
+      min-height: 128px;
+    }
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 584px;
+
+  h1 {
+    margin: 16px 0 0;
+    font-family: $iora-font-body;
+    font-size: clamp(46px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  border: 1px solid rgba(255, 45, 125, 0.28);
+  border-radius: 999px;
+  margin: 0;
+  background: rgba(255, 45, 125, 0.12);
+  color: rgba(255, 255, 255, 0.86);
+  font-family: $iora-font-display;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  padding-inline: 17px;
+}
+
+.lead {
+  max-width: 576px;
+  margin: 16px 0 0;
+  color: $iora-muted;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.portfolio,
+.schedule,
+.services {
+  @include container;
+
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio {
+  padding-block: 96px;
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 8px;
+
+  p {
+    position: relative;
+    margin: 0;
+    color: $iora-hot-pink;
+    font-family: $iora-font-display;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-left: 40px;
+
+    &::before {
+      position: absolute;
+      top: 11px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: $iora-hot-pink;
+      content: '';
+    }
+  }
+
+  h2 {
+    margin: 0;
+    font-family: $iora-font-display;
+    font-size: clamp(32px, 4vw, 40px);
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.portfolioCard {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: $iora-panel;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
+}
+
+.cardArtwork {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 26% 20%, rgba(255, 255, 255, 0.28), transparent 17rem),
+    linear-gradient(140deg, rgba(255, 45, 125, 0.74), rgba(124, 58, 237, 0.56) 44%, rgba(8, 13, 27, 0.9));
+
+  &[data-index='2'] {
+    background:
+      radial-gradient(circle at 70% 18%, rgba(255, 255, 255, 0.22), transparent 15rem),
+      linear-gradient(140deg, rgba(56, 189, 248, 0.58), rgba(216, 27, 96, 0.52) 48%, rgba(8, 13, 27, 0.92));
+  }
+
+  &[data-index='3'] {
+    background:
+      radial-gradient(circle at 60% 22%, rgba(255, 255, 255, 0.2), transparent 14rem),
+      linear-gradient(140deg, rgba(52, 211, 153, 0.5), rgba(255, 45, 125, 0.56) 48%, rgba(8, 13, 27, 0.92));
+  }
+}
+
+.cardContent {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  display: grid;
+  gap: 8px;
+  padding: 28px 32px;
+  background: linear-gradient(180deg, transparent, rgba(8, 13, 27, 0.94) 18%);
+
+  span {
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: $iora-white;
+    font-family: $iora-font-display;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-inline: 13px;
+    backdrop-filter: blur(14px);
+  }
+
+  h3 {
+    margin: 0;
+    font-family: $iora-font-display;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0;
+    color: $iora-muted;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  a {
+    width: fit-content;
+    margin-top: 8px;
+    color: $iora-white;
+    font-family: $iora-font-display;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-decoration: none;
+  }
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: minmax(0, 584px) minmax(360px, 584px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding-block: 96px;
+}
+
+.scheduleCopy {
+  > p {
+    margin: 16px 0 0;
+    color: $iora-muted;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  button {
+    margin-top: 32px;
+  }
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+
+  span {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid $iora-border;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: $iora-font-display;
+    font-size: 14px;
+    font-weight: 700;
+    padding-inline: 17px;
+  }
+
+  i {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+}
+
+.availableDot {
+  background: $iora-mint;
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.7);
+}
+
+.busyDot {
+  background: $iora-hot-pink;
+}
+
+.calendar {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 45, 125, 0.14), transparent 46%),
+    rgba(255, 255, 255, 0.06);
+  padding: 32px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    margin: 0;
+    font-family: $iora-font-display;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 0;
+  }
+
+  div {
+    display: flex;
+    gap: 8px;
+  }
+
+  span {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 8px;
+    background: $iora-panel-strong;
+    color: $iora-white;
+  }
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.weekdays {
+  margin-top: 32px;
+
+  span {
+    color: rgba(255, 255, 255, 0.46);
+    font-family: $iora-font-display;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+  }
+}
+
+.days {
+  margin-top: 16px;
+
+  span {
+    display: grid;
+    min-height: 48px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: $iora-font-display;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.muted {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.available {
+  border-color: rgba(52, 211, 153, 0.34) !important;
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.busy {
+  border-color: rgba(255, 45, 125, 0.35) !important;
+  background: rgba(255, 45, 125, 0.12);
+}
+
+.selected {
+  border-color: rgba(255, 45, 125, 0.7) !important;
+  background: linear-gradient(135deg, $iora-hot-pink, $iora-berry);
+  box-shadow: 0 18px 42px rgba(255, 45, 125, 0.25);
+}
+
+.services {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 48px;
+  border-block: 1px solid $iora-faint;
+  padding-block: 96px 120px;
+
+  h2 {
+    max-width: 720px;
+    margin: 20px 0 0;
+    font-family: $iora-font-body;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  ul {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    border: 1px solid $iora-border;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: $iora-font-display;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-block: 18px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: 72px 96px;
+  }
+
+  .heroVisual {
+    position: relative;
+    min-height: 360px;
+    order: 2;
+  }
+
+  .heroDevice {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 360px;
+  }
+
+  .heroContent {
+    max-width: none;
+  }
+
+  .portfolioGrid,
+  .schedule,
+  .services {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  @mixin mobile-container {
+    width: min(100% - 32px, 1216px);
+  }
+
+  .header,
+  .hero,
+  .portfolio,
+  .schedule,
+  .services {
+    @include mobile-container;
+  }
+
+  .nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .heroContent h1 {
+    font-size: 42px;
+  }
+
+  .heroActions,
+  .legend {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .portfolioCard {
+    min-height: 420px;
+  }
+
+  .calendar {
+    padding: 20px;
+  }
+
+  .weekdays,
+  .days {
+    gap: 6px;
+  }
+
+  .days span {
+    min-height: 42px;
+  }
+}

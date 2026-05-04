@@ -1,0 +1,151 @@
+$iora-hot-pink: #ff2d7d; // Figma 1:22 fill, 1:665 gradient start
+$iora-berry: #d81b60; // Figma 1:665 gradient end
+$iora-ink: #222a3d; // Figma 1:27 fill
+$iora-border: rgba(73, 68, 84, 0.3); // Figma 1:27 stroke
+$iora-white: #ffffff; // Figma text fill
+$iora-font-primary: 'Space Grotesk', Arial, Helvetica, sans-serif;
+$iora-font-kr: 'WenQuanYi Zen Hei', 'Noto Sans KR', Arial, Helvetica, sans-serif;
+$iora-radius-button: 12px;
+$iora-gap-icon: 8px;
+
+.button {
+  --button-bg: #{$iora-hot-pink};
+  --button-border: transparent;
+  --button-shadow: 0 0 40px -10px rgba(255, 45, 125, 0.4);
+  --button-font-family: #{$iora-font-primary};
+  --button-font-size: 16px;
+  --button-font-weight: 700;
+  --button-line-height: 25.6px;
+  --button-padding-block: 14.5px 15.09px;
+  --button-padding-inline: 32px;
+  --button-min-height: 55.59px;
+
+  position: relative;
+  display: inline-flex;
+  min-height: var(--button-min-height);
+  align-items: center;
+  justify-content: center;
+  gap: $iora-gap-icon;
+  padding-block: var(--button-padding-block);
+  padding-inline: var(--button-padding-inline);
+  border: 1px solid var(--button-border);
+  border-radius: $iora-radius-button;
+  background: var(--button-bg);
+  box-shadow: var(--button-shadow);
+  color: $iora-white;
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(255, 45, 125, 0.35);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.primary {
+  --button-bg: #{$iora-hot-pink};
+  --button-border: transparent;
+  --button-shadow: 0 0 40px -10px rgba(255, 45, 125, 0.4);
+}
+
+.secondary {
+  --button-bg: #{$iora-ink};
+  --button-border: #{$iora-border};
+  --button-shadow: none;
+}
+
+.gradient {
+  --button-bg: linear-gradient(135deg, #{$iora-hot-pink} 0%, #{$iora-berry} 100%);
+  --button-border: transparent;
+  --button-shadow:
+    0 20px 25px -5px rgba(255, 45, 125, 0.2),
+    0 8px 10px -6px rgba(255, 45, 125, 0.2);
+  --button-font-family: #{$iora-font-kr};
+  --button-font-size: 18px;
+  --button-font-weight: 400;
+  --button-line-height: 28px;
+  --button-padding-block: 16px;
+  --button-padding-inline: 32px;
+  --button-min-height: 60px;
+}
+
+.sm {
+  --button-padding-block: 10px;
+  --button-padding-inline: 24px;
+  --button-min-height: 44px;
+  --button-font-size: 14px;
+  --button-line-height: 22px;
+}
+
+.md {
+  --button-padding-block: 14.5px 15.09px;
+  --button-padding-inline: 32px;
+  --button-min-height: 55.59px;
+}
+
+.lg {
+  --button-padding-block: 16px;
+  --button-padding-inline: 40px;
+  --button-min-height: 60px;
+  --button-font-size: 18px;
+  --button-line-height: 28px;
+}
+
+.full {
+  width: 100%;
+  min-height: 60px;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 13.33px;
+  height: 13.33px;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  &::before {
+    width: 10px;
+    height: 10px;
+    border-block-start: 2px solid currentColor;
+    border-inline-end: 2px solid currentColor;
+    content: '';
+    transform: rotate(45deg);
+  }
+}
